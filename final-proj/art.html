@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+	<title>evie's 'art'</title>
+	<meta name="description" content="Evelyn Park's personal website: art page. I can't claim to do art that well, but these are some of the paintings I did in my free time. Take that for what you will.">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="css/styling.css">
+	
+	<style>
+		#header{
+			background-image: url('img/misc-bg.jpeg');
+			/*height: 35%;
+			padding-top: 15%;*/
+		}
+		#header h1 {
+			line-height: 70px;
+		}
+		.artproj {
+			width: 60%;
+			height: auto;
+			overflow: hidden;
+			position: relative;
+			align-self: center;
+		}
+		.artproj img {
+			width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+			cursor: pointer;
+			border: 2px solid #ffffe6;
+		}
+		.content {
+			display: flex;
+			position: relative;
+		}
+		.artproj:hover img {
+			border: 2px solid red;
+			cursor: pointer;
+		}
+		.overlay {
+			width: 100%;
+			display:none;
+		}
+		.slider {
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.slick-prev, .slick-prev:before, .slick-next, .slick-next:before {
+			font-size: 1.5em;
+			width: 40px;
+			height: 40px;
+		}
+		.slick-prev:before, .slick-next:before {
+			color: grey;
+		}
+		@media (max-width: 991px) {
+			.slider {
+				width: 600px;
+			}
+		}
+		@media (max-width: 767px) {
+			#header {
+				height: 30%;
+				margin-bottom: 20px;
+			}
+			.slider {
+				width: 400px;
+			}
+			.artproj {
+				width: 70%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="navbar">
+			<!-- <li>Evelyn</li> -->
+			<a href="index.html"><li>home</li></a>
+			<a href="index.html#form"><li>contact</li></a>
+			<a href="portfolio.html"><li>portfolio</li></a>
+		</div><!-- navbar -->
+
+	<div id="header">
+		<div>
+			<h1>"ART"WORK</h1>
+		</div>
+	</div><!-- header -->
+
+	<div class="content slider">
+		
+		<div id="first" class="artproj">
+			<img src="img/art/woman.jpeg">
+			<!-- <img src="img/art/woman.jpeg" data-overlay="Hello"> -->
+		</div>
+
+		<div id="second" class="artproj">
+			<img src="img/art/woman1.jpeg">
+		</div>
+
+		<div id="third" class="artproj">
+			<img src="img/art/giraffe.jpeg">
+		</div>
+	</div><!-- .slider -->
+	<div class="overlay"></div>
+
+	<div class="clearfloat"></div>
+
+	<footer>eviestudios</footer>
+
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<script>
+		document.querySelector('.artproj img').onclick = function(){
+			$(".overlay").html(this.dataset.overlay);
+			$(".overlay").show();
+		}
+
+		$(".overlay").on("click", function(){
+			$(this).hide();
+		})
+
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 100) {
+				$('#navbar').addClass('color-change');
+				$('#navbar a').addClass('font-color');
+			} else {
+				$('#navbar').removeClass('color-change');
+				$('#navbar a').removeClass('font-color');				
+			}
+		});
+	</script>
+
+	<!-- <script>
+		function mediaQuery(pop) {
+			if (pop.matches) {
+				document.querySelector('.content').classList.remove('slider');
+			} else {
+				document.querySelector('.content').classList.add('slider');
+			}
+		}
+		var pop = window.matchMedia('(max-width: 767px)')
+		mediaQuery(pop)
+		pop.addListener(mediaQuery)
+	</script> -->
+			
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+		  $('.slider').slick();
+		});	
+	</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>evie's portfolio</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="css/styling.css">
+	<meta name="description" content="Evelyn Park's personal website: portfolio page. This is the gateway to seeing my artwork, websites, and projects. Feel free to stay here for a while to enjoy the view :^)">
+
+	<style>
+		#header{
+			background-image: url('img/beach.jpeg');
+		}
+		.project:hover .overlay{
+			background-color: #ffb366;
+			color: black;
+			visibility: visible;
+		}
+		.overlay {
+			position: absolute;
+			/*margin-top: 200px;*/
+			top: 0;
+			left: 0;
+			background-color: #777;
+			width: 100%;
+			height: 440px;
+			padding-top: 260px;
+			transition: all 0.5s;
+		}
+		img {
+			width: 150px;
+			height: auto;
+		}
+		#laptop {
+			width: 200px;
+		}
+		#navbar li {
+			color: black;
+		}
+		@media(max-width: 991px) {
+			/* make three rows */
+			#header {
+				margin-bottom: 40px;
+			}
+			#portfolio {
+				flex-direction: column;
+			}
+			#portfolio .project {
+				margin-right: auto;
+				margin-left: auto;
+				width: 90%;
+				height: 300px;
+				float: none;
+				box-sizing: content-box;
+			}
+			.project:after {
+				clear: both;
+				display: table;
+				content: "";
+			}
+			.overlay {
+				width: 100%;
+				height: 250px;
+				padding-top: 50px;
+			}
+			#art:hover .overlay img {
+				animation-name: low-up;
+			}
+			@keyframes low-up {
+				0% {
+					transform: translate(0, 0px);
+				}
+				25% {
+					transform: translate(0, -40px);
+				}
+				50% {
+					transform: translate(0, 0px);
+				}
+				75% {
+					transform: translate(0, -20px);
+				}
+				100% {
+					transform: translate(0, 0px);
+				}
+			}
+		}
+		@media(max-width: 767px) {
+			/**/
+			#header {
+				height: 30%;
+				margin-bottom: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="navbar">
+			<!-- <li>Evelyn</li> -->
+			<a href="index.html"><li>home</li></a>
+			<a href="index.html#form"><li>contact</li></a>
+			<a href="portfolio.html"><li>portfolio</li></a>
+		</div><!-- navbar -->
+
+	<div id="header">
+		<div>
+			<h1>PORTFOLIO</h1>
+		</div>
+	</div><!-- header -->
+
+	<div id="portfolio">
+		<div class="project" id="websites">
+			<a href="sites.html">
+				<div id="first" class="overlay">
+					<img id="laptop" src="img/laptop.png">
+					<h4>WEBSITES</h4>
+					<!-- screenshots from ryan's site? and some class assignments (maybe even itp104 and 301 projects) -->
+				</div>
+			</a>
+		</div>
+
+		<div class="project" id="com-org">
+			<a href="design.html"><div id="second" class="overlay">
+				<img src="img/flower.png">
+				<h4>DESIGN THINKING</h4>
+				<!-- dfa (mobile and web prototypes), itp310 roommates, k.w. lee center-->
+			</div></a>
+		</div>
+
+		<div class="project" id="art">
+			<a href="art.html"><div id="third" class="overlay">
+				<img src="img/paint.png">
+				<h4>ART WORK</h4>
+				<!-- the three paintings, some sketches maybe?? idk -->
+			</div></a>
+		</div>
+	</div><!-- #porfolio -->
+
+	<div class="clearfloat"></div>
+
+
+	<footer>eviestudios</footer>
+
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<script>
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 100) {
+				$('#navbar').addClass('color-change');
+				$('#navbar a').addClass('font-color');
+			} else {
+				$('#navbar').removeClass('color-change');
+				$('#navbar a').removeClass('font-color');				
+			}
+		});
+	</script>
+
+</body>
+</html>
